@@ -1,7 +1,59 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.pad-bank {
+  border: 1px red solid;
+  /* margin: auto; */
+  width: 250px;
+  height: 250px;
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .drum-key {
   height: 50px;
   width: 50px;
   color: white;
   text-align: center;
   line-height: 50px;
+}
+
+.clip {
+  border: 1px red solid;
+}
+
+.inner-container {
+  border: 1px blue solid;
+  width: 80vw;
+  margin: 20vh auto;
+}
+
+.logo {
+  border: 1px pink solid;
+}
+
+.inner-logo {
+  border: 1px red solid;
+}
+
+.controls-container {
+  border: 1px green solid;
+  background: hotpink;
+}
+
+.control {
+  border: 1px orangered solid;
+}
+
+.select {
+  background: black;
+}
+
+.inner {
+  border: 1px solid purple;
 }

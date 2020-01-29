@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './scss/App.css';
 
 // globe parameters
 const bankOne = [{
@@ -168,7 +168,7 @@ class DrumKeys extends React.Component{
       className = "drum-key"
       style = {this.state.padStyle}>
         <audio className='clip' id = {this.props.keyTrigger}
-        src = {this.props.clip}></audio>
+        src = {this.props.clip}/>
         {this.props.keyTrigger}
       </div>
     )
@@ -230,9 +230,9 @@ class App extends React.Component {
       display:String.fromCharCode(160)
     });
   }
-  selectBank(){
+  selectBank=()=>{
     if(this.state.power){
-      this.state.currentPadBankId === 'Heater Kit'?
+      this.state.currentPadBankId === 'Heater Kit' ?
       this.setState({
         currentPadBank:bankTwo,
         display:'Smooth Piano Kit',
@@ -252,7 +252,7 @@ class App extends React.Component {
       });
     }
   }
-  adjustVolumen = e =>{
+  adjustVolume = e =>{
     if(this.state.power){
       this.setState(
        { 
@@ -280,6 +280,7 @@ class App extends React.Component {
       float:'right'
     };
     {
+      // !!! this snippet
       const clips = [].slice.call(document.getElementsByClassName('clip'));
       clips.forEach(
         sound =>{

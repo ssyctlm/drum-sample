@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+
 }
 
 .inner-container {
@@ -31,7 +32,7 @@ body {
     display: inline-block;
     margin: 20px;
 
-    .drum-pad {
+    .drum-key {
       position: relative;
       float: left;
       width: $padWidth;
