@@ -181,13 +181,15 @@ class PadBank extends React.Component{
   }
   render(){
     let padBank;
+    //!!! how .mpa method works on complex Obj
     this.props.power?
     padBank = this.props.currentPadBank.map((drumObj,i,padBankArr)=>{
       return (
         <DrumKeys
         clipId = {padBankArr[i].id}
         clip =  {padBankArr[i].url}
-        keyTrigger = {padBankArr[i].keyCode}
+        keyTrigger={padBankArr[i].keyTrigger}
+				keyCode={padBankArr[i].keyCode} 
         updateDisplay = {this.props.updateDisplay}
         power = {this.props.power} />
       )
@@ -279,8 +281,8 @@ class App extends React.Component {
     }:{
       float:'right'
     };
-    {
-      // !!! this snippet
+    { // volume setting
+      // !!! through this snippet to acquaint how to use [].slice.call() 
       const clips = [].slice.call(document.getElementsByClassName('clip'));
       clips.forEach(
         sound =>{
