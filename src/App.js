@@ -181,15 +181,15 @@ class PadBank extends React.Component{
   }
   render(){
     let padBank;
-    //!!! how .mpa method works on complex Obj
+    //!!! how .map method works on complex Obj
     this.props.power?
     padBank = this.props.currentPadBank.map((drumObj,i,padBankArr)=>{
       return (
         <DrumKeys
-        clipId = {padBankArr[i].id}
-        clip =  {padBankArr[i].url}
-        keyTrigger={padBankArr[i].keyTrigger}
-				keyCode={padBankArr[i].keyCode} 
+        clipId = {drumObj.id}
+        clip =  {drumObj.url}
+        keyTrigger={drumObj.keyTrigger}
+				keyCode={drumObj.keyCode} 
         updateDisplay = {this.props.updateDisplay}
         power = {this.props.power} />
       )
@@ -205,6 +205,8 @@ class PadBank extends React.Component{
         power= {this.props.power} />
       )
     });
+
+    // 3 parameters of Array.map method are `EachArrayElement`, `indexOfEachElement`,`TheArrayItSelf`. And as above snippet of code show, two different way to quote the item will have a identical outcome
     return (
       <div className ="pad-bank" >
         {padBank}
@@ -283,7 +285,9 @@ class App extends React.Component {
     };
     { // volume setting
       // !!! through this snippet to acquaint how to use [].slice.call() 
-      const clips = [].slice.call(document.getElementsByClassName('clip'));
+      // [].slice === Array.prototype.slice   ## this would return `true`
+      // var clips = Array.prototype.slice.call(document.getElementsByClassName('clip'),0)
+      const clips = [].slice.call(document.getElementsByClassName('clip'),0);
       clips.forEach(
         sound =>{
           sound.volume = this.state.sliderVal
